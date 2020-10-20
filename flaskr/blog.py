@@ -10,13 +10,6 @@ bp = Blueprint('blog', __name__)
 def index():
     return render_template('blog/admin.html')
 
-# bp.route('/analytics')
-# def analytics():
-#     return render_template('blog/admin.html')
-
 @bp.route('/map')
 def geomap():
     return render_template('blog/geomap.html')
-
-def handle_404(e):
-    return render_template('blog/admin.html')
