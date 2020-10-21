@@ -84,9 +84,9 @@
               <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                   <div class="mr-md-3 mr-xl-5">
-                    {% block title %}
+                 
                     <h2>Dengue Watch</h2>
-                    {% endblock %}
+                 
                     <!-- <p class="mb-md-0">Your analytics dashboard template.</p> -->
                   </div>
                   
@@ -97,7 +97,7 @@
               </div>
             </div>
           </div>
-          {% block head %}
+          {% block denguemap %}
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
@@ -155,9 +155,9 @@
                   <p class="card-title">Cash deposits</p>
                   <p class="mb-4">To start a blog, think of a topic about and first brainstorm party is ways to write details</p>
                   <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"></div>
-                  {% block graphplot %}
+                 
                   <canvas id="cash-deposits-chart"></canvas>
-                  {% endblock %}
+                
                 </div>
               </div>
             </div>
@@ -174,20 +174,21 @@
               </div>
             </div>
           </div>
-          {% endblock %}
+          
           <div class="row">
             <div class="col-md-12 stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Dengue Map</p>
-                  {% block denguemap %}
                 
-                  {% endblock %}
+                
+                
                 </div>
               </div>
             </div>
           </div>
         </div>
+        {% endblock %}
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer">

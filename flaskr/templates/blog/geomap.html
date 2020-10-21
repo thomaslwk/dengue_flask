@@ -1,12 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% block title %} Dengue Map {% endblock %}
 {% block head %}
  <h3>ICT-1002</h3>
  <br/>
+ <!-- {{geomap}} -->
 {% endblock %}
 
 {% block denguemap %}
-
-    {{geomap}}
-
+<!-- {{geomap}}
+<iframe src="/templates/map.html"></iframe> -->
+    {% include "map.html" %}
 {% endblock %}

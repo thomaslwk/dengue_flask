@@ -4,13 +4,15 @@ from folium.plugins import FastMarkerCluster
 
 # Declaring the location of the Map
 def make_folium_map(): 
-    sg_map = folium.Map(center=[1.3649170000000002, 103.82287200000002], zoom_start=12, min_zoom=12, max_zoom=16)
+    sg_map = folium.Map(center=[1.3649170000000002, 103.82287200000002], zoom_start=12, min_zoom=12, max_zoom=16, width='75%',
+                            height='75%')
     sg_map.add_child(south_east)
     sg_map.add_child(north_east)
     sg_map.add_child(south_west)
     sg_map.add_child(north_west)
     sg_map.add_child(central)
-    return sg_map._repr_html_()
+    # sg_map.save('templates/map.html')
+    return sg_map
 
 # sg_map = folium.Map(center=[1.3649170000000002, 103.82287200000002], zoom_start=12, min_zoom=12, max_zoom=16)
 # FUNCTION USED TO SET CLUSTER COUNT + COLOR
