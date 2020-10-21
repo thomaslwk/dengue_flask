@@ -1,19 +1,3 @@
-# import folium 
-# import json
-# import folium.plugins import FastMarkerCluster
-
-# def make_folium_map():
-#     folium_map = folium.Map(location=[1.3521, 103.8198], 
-#                              zoom_start=13)
-#     # img = folium.raster_layers.ImageOverlay(map_overlay,
-#     #                                         bounds=[(max_lat - delta_lat, min_lon), (max_lat, max_lon)],
-#     #                                          opacity=1,
-#     #                                          name="Paths")
-
-#     # img.add_to(folium_map)
-#     # folium.LayerControl().add_to(folium_map)
-#     return folium_map._repr_html_()
-
 import folium
 import json
 from folium.plugins import FastMarkerCluster
@@ -68,7 +52,7 @@ def json_filter(filename):
 
 ################################################### START OF NORTH EAST #########################################################
 # Setting the NORTH EAST Fast Marker Cluster
-north_east = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-habitats-south-west-geojson.geojson'), name='Cluster Icons',
+north_east = FastMarkerCluster(data=json_filter('source/dengue_data/aedes-mosquito-breeding-habitats-south-west-geojson.geojson'), name='Cluster Icons',
                                icon_create_function=icon_create_function, control=False)
 # Adding the Cluster to the Map
 # sg_map.add_child(north_east)
@@ -76,7 +60,7 @@ north_east = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-
 
 ################################################### START OF NORTH WEST #########################################################
 # THIS LINE CREATES THE NORTH WEST CLUSTER
-north_west = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-habitats-north-west-geojson.geojson'), name='Cluster Icons',
+north_west = FastMarkerCluster(data=json_filter('source/dengue_data/aedes-mosquito-breeding-habitats-north-west-geojson.geojson'), name='Cluster Icons',
                                icon_create_function=icon_create_function, control=False)
 
 # Adding the Cluster to the Map
@@ -85,7 +69,7 @@ north_west = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-
 
 ################################################### START OF SOUTH EAST #########################################################
 # THIS LINE CREATES THE NORTH WEST CLUSTER
-south_east = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-habitats-south-east-geojson.geojson'), name='Cluster Icons',
+south_east = FastMarkerCluster(data=json_filter('source/dengue_data/aedes-mosquito-breeding-habitats-south-east-geojson.geojson'), name='Cluster Icons',
                                icon_create_function=icon_create_function, control=False)
 
 # Adding the Cluster to the Map
@@ -94,7 +78,7 @@ south_east = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-
 
 ################################################### START OF SOUTH WEST #########################################################
 # THIS LINE CREATES THE NORTH WEST CLUSTER
-south_west = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-habitats-south-west-geojson.geojson'), name='Cluster Icons',
+south_west = FastMarkerCluster(data=json_filter('source/dengue_data/aedes-mosquito-breeding-habitats-south-west-geojson.geojson'), name='Cluster Icons',
                                icon_create_function=icon_create_function, control=False)
 
 # Adding the Cluster to the Map
@@ -103,7 +87,7 @@ south_west = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-
 
 ################################################### START OF CENTRAL #########################################################
 # THIS LINE CREATES THE CENTRAL CLUSTER
-central = FastMarkerCluster(data=json_filter('source/aedes-mosquito-breeding-habitats-central-geojson.geojson'), name='Cluster Icons',
+central = FastMarkerCluster(data=json_filter('source/dengue_data/aedes-mosquito-breeding-habitats-central-geojson.geojson'), name='Cluster Icons',
                             icon_create_function=icon_create_function, control=False)
 
 # Adding the Cluster to the Map
