@@ -21,6 +21,7 @@
   <!-- <link rel="stylesheet" href="css/style.css"> -->
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png')}}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 </head>
 <body>
   <div class="container-scroller">
@@ -152,8 +153,9 @@
             <div class="col-md-7 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title">Cash deposits</p>
-                  <p class="mb-4">To start a blog, think of a topic about and first brainstorm party is ways to write details</p>
+                  <p class="card-title">Average Dengue & Rainfall</p>
+                  <p class="mb-4">Average Dengue Cases and Rainfall over 4 years</p>
+                  <p class="text-muted">Higher average rainfall will lead higher average dengue cases </p>
                   <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"></div>
                   {% block graphplot %}
                   <canvas id="cash-deposits-chart"></canvas>
@@ -168,7 +170,7 @@
                   <h1>$ 28835</h1>
                   <h4>Gross sales over the years</h4>
                   <p class="text-muted">Today, many people rely on computers to do homework, work, and create or store useful information. Therefore, it is important </p>
-                  <div id="total-sales-chart-legend"></div>                  
+                  <div id="total-sales-chart-legend"></div>
                 </div>
                 <canvas id="total-sales-chart"></canvas>
               </div>
@@ -181,7 +183,7 @@
                 <div class="card-body">
                   <p class="card-title">Dengue Map</p>
                   {% block denguemap %}
-                
+
                   {% endblock %}
                 </div>
               </div>

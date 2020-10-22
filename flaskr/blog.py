@@ -1,5 +1,5 @@
 from flask import Blueprint, flash, g, redirect, render_template, request, url_for
-from source.denguegraph import test
+from source.denguegraph import avgrainfalllist, avgdenguelist
 from source.denguemap import make_folium_map
 from werkzeug.exceptions import abort
 
@@ -8,7 +8,10 @@ bp = Blueprint('blog', __name__)
 
 @bp.route('/', methods=('GET','POST'))
 def index():
-    return render_template('blog/admin.html')
+    return render_template('blog/admin.html',
+                           denguecases=avgdenguelist(),
+                           rainfalltotal=avgrainfalllist(),
+                           )
     
 
 @bp.route('/map')
