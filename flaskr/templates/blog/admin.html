@@ -40,3 +40,8 @@ var chart = new Chart(ctx, {
 
 
 {% endblock %}
+
+{% block graphlinearreg %}
+{{ linearreg }}
+<img src="{{url_for('static', filename='images/Linear_Regression_DvR.svg')}}" style="padding-top: 5%;" width="100%" viewBox="0 0 20 10 alt="image"/>
+{% endblock %}

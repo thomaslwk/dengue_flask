@@ -29,8 +29,8 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
-          <a class="navbar-brand brand-logo" href=""><img src="{{ url_for('static', filename='images/logo.svg')}}" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href=""><img src="{{ url_for('static', filename='images/logo.svg')}}" alt="logo"/></a>
+          <a class="navbar-brand brand-logo" href="{{url_for('blog.index')}}"><img src="{{ url_for('static', filename='images/logo.svg')}}" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="{{url_for('blog.index')}}"><img src="{{ url_for('static', filename='images/logo.svg')}}" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-sort-variant"></span>
           </button>
@@ -165,14 +165,12 @@
             </div>
             <div class="col-md-5 grid-margin stretch-card">
               <div class="card">
-                <div class="card-body">
-                  <p class="card-title">Total sales</p>
-                  <h1>$ 28835</h1>
-                  <h4>Gross sales over the years</h4>
-                  <p class="text-muted">Today, many people rely on computers to do homework, work, and create or store useful information. Therefore, it is important </p>
-                  <div id="total-sales-chart-legend"></div>
+                
+                <div class="card-body" style="padding: 5%;">
+                {% block graphlinearreg %}
+                {% endblock %}
                 </div>
-                <canvas id="total-sales-chart"></canvas>
+                <!-- <canvas id="total-sales-chart"></canvas> -->
               </div>
             </div>
           </div>
