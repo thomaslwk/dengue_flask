@@ -1,31 +1,26 @@
 {% extends 'base.html' %}
+<!-- Block for return of Largest cluster from our own json files. -->
 {% block denguecluster %}
-
 <small class="mb-1 text-muted">Largest Active Cluster</small>
 <h5 class="mr-2 mb-0"> {{ listcompare}} </h5>
-
 {% endblock %}
 
+<!-- Block for return Smallest Cluster. -->
 {% block neadatasmall %}
 <small class="mb-1 text-muted">Smallest Active Cluster (NEA data)
-    <!-- <a href="href="https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters">
-        (Nea Data)
-    </a> -->
 </small>
 <h5 class="mr-2 mb-0">{{neadatasmall}}</h5>
 {% endblock %}
 
+<!-- Block for return Largest Cluster. -->
 {% block neadatabig %}
 <small class="mb-1 text-muted"> Largest Active Cluster (NEA data)
-    <!-- <a href="href="https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters">
-        (Nea Data)
-    </a> -->
 </small>
 <h5 class="mr-2 mb-0">{{ neadatabig }}</h5>
 {% endblock %}
 
+<!-- Block for chartjs Graph with Dengue and Rainfall. -->
 {% block graphplot %}
-
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -64,13 +59,14 @@
 </script>
 {% endblock %}
 
-
+<!-- Block for Linear Regression Graph with Dengue and Rainfall. -->
 {% block graphlinearreg %}
 {{ linearreg }}
 <img src="{{url_for('static', filename='images/Linear_Regression_DvR.svg')}}" style="padding-top: 5%;" width="100%"
     viewBox="0 0 20 10 alt=" image" />
 {% endblock %}
 
+<!-- Block for Table data -->
 {% block neadata %}
 <div class="row">
     <div class="col-md-12 stretch-card">
@@ -78,7 +74,7 @@
             <div class="card-body">
                 <p class="card-title">Table Information</p>
                 <div class="table-responsive">
-                 <!-- Table element here-->
+                    <!-- Table element here-->
                 </div>
             </div>
         </div>
