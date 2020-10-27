@@ -144,3 +144,36 @@ central = FastMarkerCluster(
 # Adding the Cluster to the Map
 # sg_map.add_child(central)
 ################################################### END OF CENTRAL #########################################################
+
+
+## Function to read file 
+## -- Dirty fix to return number of items in each json file -- 
+def json_fileread(filename):
+    with open(filename) as ne: 
+        json_data = json.load(ne)
+    json_list = json_data['features']
+    json_data_coordinates = []
+    for x in range(len(json_list)):
+        data_set = json_list[x]
+        for i in range(len(data_set['geometry']['coordinates'][0])):
+            thisTuple = (data_set['geometry']['coordinates'][0][i][1], data_set['geometry']['coordinates'][0][i][0])
+            json_data_coordinates.append(thisTuple)
+    return len(json_data_coordinates)
+
+## Compare function to store each count into a dict, with corresponding area 
+def list_compare():
+    dictc = {'North-east':[], 
+    'North-west':[], 'South-east':[], 'South-west':[], 'Central':[]}
+
+    north_east = json_fileread('source/dengue_data/aedes-mosquito-breeding-habitats-north-east-geojson.geojson')
+    north_west = json_fileread('source/dengue_data/aedes-mosquito-breeding-habitats-north-west-geojson.geojson')
+    south_east = json_fileread('source/dengue_data/aedes-mosquito-breeding-habitats-south-east-geojson.geojson')
+    south_west = json_fileread('source/dengue_data/aedes-mosquito-breeding-habitats-south-west-geojson.geojson')
+    central = json_fileread('source/dengue_data/aedes-mosquito-breeding-habitats-central-geojson.geojson')
+
+    dictc['North-east'].append(north_east)
+    dictc['North-west'].append(north_west)
+    dictc['South-west'].append(south_west)
+    dictc['South-east'].append(south_east)
+    dictc['Central'].append(central)
+    return max(dictc, key=dictc.get)

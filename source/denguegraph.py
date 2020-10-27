@@ -1,19 +1,6 @@
 import pandas
-
-
-# test = pandas.read_csv("C:\\SIT\\1002\\Project\\DengueData.csv")
-# test2 = pandas.read_csv("C:\\SIT\\1002\\Project\\rainfall-monthly-total.csv")
-# print(test)
-# print(test2)
-
-# def denguecases():
-#     denguecase = pandas.read_csv("C:\\SIT\\1002\\Project\\DengueMonthlyData.csv")
-#
-#     return denguecase.Monthly_Cases.to_list(), denguecase.Monthly.to_list()
-#
-# def rainfalls():
-#     rainfall = pandas.read_csv("C:\\SIT\\1002\\Project\\RainfallData.csv")
-#     return rainfall.Total_Rainfall.to_list(), rainfall.Month.to_list()
+import requests
+from bs4 import BeautifulSoup
 
 def averagerainfalls(x):
     a = 0
@@ -53,22 +40,43 @@ def avgdenguelist():
     return avglist
 
 
-# rainfall1 = pandas.read_csv("C:\\SIT\\1002\\Project\\RainfallData.csv")
-# print(rainfall1.Total_Rainfall.to_list())
-# print(rainfall1.Month.to_list())
+def nea_data_big_c():
+   # Using beautiful soup to borrow data from NEA because no api provided 
+    page = requests.get("https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters")
+    soup = BeautifulSoup(page.content, 'html.parser')
 
+    data = [] 
+    table = soup.find('table', attrs={'class':'table surveillance-table two-row-head dengue-fixed-table'})
+    table_body = table.find('tbody')
 
-# # print(denguecases()[0], denguecases()[1])
-# #
-# # def testcase():
-# list1 = []
-# list2 = []
-# testcase = pandas.read_csv("C:\\SIT\\1002\\Project\\TestCase.csv")
-# list1 = testcase.Year.to_list()
-# list2 = testcase.Cases.to_list()
-# print(list1)
-# print(list2)
-# # return list1, list2
+    rows = table_body.find_all('tr')
+    for row in rows:
+        cols = row.find_all('td')
+        cols = [ele.text.strip() for ele in cols] 
+        data.append([ele for ele in cols if ele])
+    
+    biggest_active_cluster = " ".join(data[3][1].split('/'))
+   
+    return biggest_active_cluster 
+    # return requests.get("https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters").json()
 
+def nea_data_small_c():
+   # Using beautiful soup to borrow data from NEA because no api provided 
+    page = requests.get("https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters")
+    soup = BeautifulSoup(page.content, 'html.parser')
 
+    data = [] 
+    table = soup.find('table', attrs={'class':'table surveillance-table two-row-head dengue-fixed-table'})
+    table_body = table.find('tbody')
 
+    rows = table_body.find_all('tr')
+    for row in rows:
+        cols = row.find_all('td')
+        cols = [ele.text.strip() for ele in cols] 
+        data.append([ele for ele in cols if ele])
+    smallest_active_cluster = " ".join(data[-1][1].split('/'))
+    # biggest_active_cluster = " ".join(data[3][1].split('/'))
+   
+    return smallest_active_cluster 
+    # return requests.get("https://www.nea.gov.sg/dengue-zika/dengue/de
+ 

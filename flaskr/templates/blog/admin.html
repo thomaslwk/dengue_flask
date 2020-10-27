@@ -1,4 +1,29 @@
 {% extends 'base.html' %}
+{% block denguecluster %}
+
+<small class="mb-1 text-muted">Largest Active Cluster</small>
+<h5 class="mr-2 mb-0"> {{ listcompare}} </h5>
+
+{% endblock %}
+
+{% block neadatasmall %}
+<small class="mb-1 text-muted">Smallest Active Cluster
+    <a href="href="https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters">
+        (Nea Data)
+    </a>
+</small>
+<h5 class="mr-2 mb-0">{{neadatasmall}}</h5>
+{% endblock %}
+
+{% block neadatabig %}
+<small class="mb-1 text-muted"> Largest Active Cluster
+    <a href="href="https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters">
+        (Nea Data)
+    </a>
+</small>
+<h5 class="mr-2 mb-0">{{ neadatabig }}</h5>
+{% endblock %}
+
 {% block graphplot %}
 
 <canvas id="myChart" width="400" height="400"></canvas>
@@ -37,8 +62,6 @@
     }
 });
 </script>
-
-
 {% endblock %}
 
 
@@ -46,4 +69,19 @@
 {{ linearreg }}
 <img src="{{url_for('static', filename='images/Linear_Regression_DvR.svg')}}" style="padding-top: 5%;" width="100%"
     viewBox="0 0 20 10 alt=" image" />
+{% endblock %}
+
+{% block neadata %}
+<div class="row">
+    <div class="col-md-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title">Table Information</p>
+                <div class="table-responsive">
+                 <!-- Table element here-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
