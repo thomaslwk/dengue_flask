@@ -2,7 +2,7 @@
 
 002 Analytics Project
 
-How to run: 
+Installation instructions: 
 1. git clone 
 2. pip install -r requirements.txt 
 3. gunicorn wsgi:app or flask run 
