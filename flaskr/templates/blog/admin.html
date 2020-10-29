@@ -21,7 +21,17 @@
 
 <!-- Block for chartjs Graph with Dengue and Rainfall. -->
 {% block graphplot %}
+<p class="card-title">Average Dengue & Rainfall</p>
+<p class="mb-4">Average Dengue Cases and Rainfall over 6 years</p>
+<p class="text-muted">Higher average rainfall will lead higher average dengue cases
+</p>
+<div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3">
+</div>
+
+
+
 <canvas id="myChart" width="400" height="400"></canvas>
+
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
@@ -57,6 +67,7 @@
     }
 });
 </script>
+</div>
 {% endblock %}
 
 <!-- Block for Linear Regression Graph with Dengue and Rainfall. -->

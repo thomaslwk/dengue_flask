@@ -142,65 +142,58 @@
                         <div class="col-md-7 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="card-title">Average Dengue & Rainfall</p>
-                                    <p class="mb-4">Average Dengue Cases and Rainfall over 4 years</p>
-                                    <p class="text-muted">Higher average rainfall will lead higher average dengue cases
-                                    </p>
-                                    <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3">
-                                    </div>
                                     {% block graphplot %}
-                                    <canvas id="cash-deposits-chart"></canvas>
-                                    {% endblock %}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body" style="padding: 5%;">
-                                    <!-- Card Containing linearReg Code here-->
-                                    {% block graphlinearreg %}
-                                    {% endblock %}
-                                    <!-- end of linearReg Section -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endblock %}
-                
-               {% block neadata %}
-               {% endblock %}
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                <footer class="footer">
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018 <a
-                                href="https://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights
-                            reserved.</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made
-                            with <i class="mdi mdi-heart text-danger"></i></span>
-                    </div>
-                </footer>
-                <!-- partial -->
-            </div>
-            <!-- main-panel ends -->
-        </div>
-        <!-- page-body-wrapper ends -->
-    </div>
 
-    <!-- JS Requirement for the template -->
-    <script src="{{ url_for('static', filename='vendors/base/vendor.bundle.base.js')}}"></script>
-    <script src="{{ url_for('static', filename='vendors/chart.js/Chart.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='vendors/datatables.net/jquery.dataTables.js')}}"></script>
-    <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-    <script src="{{ url_for('static', filename='js/off-canvas.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/hoverable-collapse.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/template.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/dashboard.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/data-table.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.dataTables.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/dataTables.bootstrap4.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.cookie.js')}}" type="text/javascript"></script>
+                                    {% endblock %}
+                                </div>
+                            </div>
+                            <div class="col-md-5 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body" style="padding: 5%;">
+                                        <!-- Card Containing linearReg Code here-->
+                                        {% block graphlinearreg %}
+                                        {% endblock %}
+                                        <!-- end of linearReg Section -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endblock %}
+
+                    {% block neadata %}
+                    {% endblock %}
+                    <!-- content-wrapper ends -->
+                    <!-- partial:partials/_footer.html -->
+                    <footer class="footer">
+                        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018
+                                <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights
+                                reserved.</span>
+                            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made
+                                with <i class="mdi mdi-heart text-danger"></i></span>
+                        </div>
+                    </footer>
+                    <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+
+        <!-- JS Requirement for the template -->
+        <script src="{{ url_for('static', filename='vendors/base/vendor.bundle.base.js')}}"></script>
+        <script src="{{ url_for('static', filename='vendors/chart.js/Chart.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='vendors/datatables.net/jquery.dataTables.js')}}"></script>
+        <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+        <script src="{{ url_for('static', filename='js/off-canvas.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/hoverable-collapse.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/template.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/dashboard.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/data-table.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.dataTables.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/dataTables.bootstrap4.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.cookie.js')}}" type="text/javascript"></script>
 </body>
 
 </html>

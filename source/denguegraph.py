@@ -91,8 +91,6 @@ def avgdenguelist():
 
 
 ''' Webscraping with BeautifulSoup.'''
-
-
 # Function to return largest Active Cluster.
 def nea_data_big_c():
     # Using beautiful soup to borrow data from NEA because no api provided
