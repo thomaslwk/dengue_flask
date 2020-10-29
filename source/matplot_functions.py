@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 
 
 def import_csv(filename):  # import csv filetype and assign to a dataframe
-    filename = "source/dengue_data"
+    filename = "source/dengue_data/"
     overall_dataset = pd.read_csv(filename, index_col=None)
     return overall_dataset
 # def total_case_per_month(dataset):  # check for hte
@@ -141,7 +141,7 @@ def overall_dengue_cases_chart():
 
 
 def rainfall_chart():
-    rainfall_data = pandas.read_csv("source/dengue_data/RainfallData_G.csv")
+    rainfall_data = pandas.read_csv("source/dengue_data/RainfallData.csv")
     rcases_2016 = rainfall_per_month_for_choice_year(rainfall_data, 2016)
     rcases_2017 = rainfall_per_month_for_choice_year(rainfall_data, 2017)
     rcases_2018 = rainfall_per_month_for_choice_year(rainfall_data, 2018)
@@ -171,7 +171,7 @@ def linear_reg_chart():
     dengue_title = "Dengue Linear Regression Analysis"
     denguedata = pd.read_csv("source/dengue_data/hist_data_dengue.csv")
     denguecases = total_case_per_month(denguedata)
-    raindata = pd.read_csv("source/dengue_data/RainfallData_G.csv")
+    raindata = pd.read_csv("source/dengue_data/RainfallData.csv")
     raincases = raindata.Total_Rainfall
     x = raincases.values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
     y = denguecases["Case per Month"].values.reshape(-1, 1)  # values converts it into a numpy array
