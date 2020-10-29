@@ -90,8 +90,13 @@ def avgdenguelist():
     return avglist
 
 
-''' Webscraping with BeautifulSoup.'''
-# Function to return largest Active Cluster.
+"""
+    Function Name: nea_data_big_c(), nea_data_small_c()
+    Variable: NILL
+    Description: Web scrape function to get html data from NEA's site to get most updated active cluster.
+    Wasn't able to figure out in time how to input condition to separate the functions. 
+"""
+# Attempted function
 def nea_data_big_c():
     # Using beautiful soup to borrow data from NEA because no api provided
     page = requests.get("https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters")
@@ -111,8 +116,7 @@ def nea_data_big_c():
     # Format output to get first set of element as it reflects the largest cluster
     biggest_active_cluster = " ".join(data[3][1].split('/'))
     return biggest_active_cluster
-
-
+   
 def nea_data_small_c():
     # Using beautiful soup to borrow data from NEA because no api provided
     page = requests.get("https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters")
@@ -132,25 +136,4 @@ def nea_data_small_c():
     # Format output to get last set as it reflects the smallest cluster
     smallest_active_cluster = " ".join(data[-1][1].split('/'))
     return smallest_active_cluster
-
-#  def nea_data(x):
-#    # Using beautiful soup to borrow data from NEA because no api provided 
-#     page = requests.get("https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters")
-#     soup = BeautifulSoup(page.content, 'html.parser')
-
-#     data = []
-#     # Get table element with this classname from NEA's site 
-#     table = soup.find('table', attrs={'class':'table surveillance-table two-row-head dengue-fixed-table'})
-#     table_body = table.find('tbody')
-#     rows = table_body.find_all('tr')
-#     for row in rows:
-#         cols = row.find_all('td')
-#         cols = [ele.text.strip() for ele in cols] 
-#         data.append([ele for ele in cols if ele])
-#     # Format output to get first set of element as it reflects the largest cluster
-#     if x == "big":
-#         biggest_active_cluster = " ".join(data[3][1].split('/'))
-#         return biggest_active_cluster 
-#     elif x == "small":
-#         smallest_active_cluster = " ".join(data[-1][1].split('/'))
-#         return smallest_active_cluster
+    
