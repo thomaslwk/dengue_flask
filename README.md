@@ -9,6 +9,7 @@ How to run:
 
 Project running on localhost:
 
-[Demo Site: ](https://dengue-cookie.herokuapp.com/)
+Hosted site available [here](https://dengue-cookie.herokuapp.com/)
+
 Telegrambot Username: @dengue_bot_cookie
 
