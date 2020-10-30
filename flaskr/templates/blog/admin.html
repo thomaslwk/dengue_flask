@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
+<!-- Block for Title header -->
+{% block title %}
+<h2>Dengue Watch</h2>
+{% endblock %}
+
 <!-- Block for return of Largest cluster from our own json files. -->
 {% block denguecluster %}
-<small class="mb-1 text-muted">Largest Active Cluster</small>
+<small class="mb-1 text-muted">Largest Active Region</small>
 <h5 class="mr-2 mb-0"> {{ listcompare}} </h5>
 {% endblock %}
 
@@ -27,11 +32,7 @@
 </p>
 <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3">
 </div>
-
-
-
 <canvas id="myChart" width="400" height="400"></canvas>
-
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
@@ -75,6 +76,7 @@
 {{ linearreg }}
 <img src="{{url_for('static', filename='images/Linear_Regression_DvR.svg')}}" style="padding-top: 5%;" width="100%"
     viewBox="0 0 20 10 alt=" image" />
+<div> Testing elements </div>
 {% endblock %}
 
 <!-- Block for Table data -->
