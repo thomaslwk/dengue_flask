@@ -75,8 +75,20 @@
 {% block graphlinearreg %}
 {{ linearreg }}
 <img src="{{url_for('static', filename='images/Linear_Regression_DvR.svg')}}" style="padding-top: 5%;" width="100%"
-    viewBox="0 0 20 10 alt=" image" />
-<div> Testing elements </div>
+    viewBox="0 0 20 10" />
+<!-- <div> Linear regression chart description: <br />
+    This chart shows the inverse relationship between rainfall amount and dengue cases. However, the data from the
+    linear regression is predicted solely through the use of rainfall data and will not be accurate as they are many
+    other factors that are not being factored in. </div> -->
+<div>
+    Linear Regression Analysis <br/> 
+    Correlation : - 1.66 <br />
+    Mean Square Error : 488849.51 <br />
+    R-Squared : 0.04 <br />
+    This chart shows the inverse relationship between rainfall amount and dengue cases. However, the data from the
+    linear regression is predicted solely through the use of rainfall data and will not be accurate as they are many
+    other factors that are not being factored in.
+</div>
 {% endblock %}
 
 <!-- Block for Table data -->

@@ -4,22 +4,30 @@ from bs4 import BeautifulSoup
 
 '''Calculating average dengue cases and rainfall
  def filter_months(dataset):
-    Removing any duplicates month
+    Input: CSV file(Sorted by weeks)
+    Output: Dataframe (Data sorted by months)
  
- def averagerainfall(x):
+ def averagerainfall(month):
+    Input: A number representing the month
+    Output: The average of rainfall in the list with the same month
     Calculates average rainfall in each month
 
  def avgrainfalllist():
-    append each month average rainfall into a list
+    Output: Average rainfall given by averagerainfall(x) in a list
+    Append each month average rainfall into a list
     
- def averagerdenguecases(month):
+ def averagedenguecases(month):
+    Input: The variable month filtered by filter_months(dataset)
+    Output: The average dengue cases for that month
     Calculate average dengue cases in each month
  
  def avgdenguelist():
-    append each month average dengue cases into a list
+    Output: The average dengue cases calculated by averagedenguecases listed in a list
+    Append each month average dengue cases into a list
  
  '''
-def filter_months(dataset):  # To filter and get all 12 months
+# To filter and get all 12 months
+def filter_months(dataset):  
     # to remove any duplicate after identifying the first month
     total_months = dataset.drop_duplicates(subset="Month", keep="first")
     return total_months.loc[:, ["Month"]]
@@ -96,15 +104,15 @@ def avgdenguelist():
     Description: Web scrape function to get html data from NEA's site to get most updated active cluster.
     Wasn't able to figure out in time how to input condition to separate the functions. 
 """
-# Attempted function
+# -- Function to return Largest Active Cluster -- #
 def nea_data_big_c():
-    # Using beautiful soup to borrow data from NEA because no api provided
+    # -- Using beautiful soup to borrow data from NEA because no api provided -- #
     page = requests.get("https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters")
     soup = BeautifulSoup(page.content, 'html.parser')
     data = []
 
-    # Get table element with this classname on NEA's site.
-    # This is the start of the table, where the information we want to crawl begins.  
+    # -- Get table element with this classname on NEA's site. -- #
+    # -- This is the start of the table, where the information we want to crawl begins. -- #
     table = soup.find('table', attrs={'class': 'table surveillance-table two-row-head dengue-fixed-table'})
     table_body = table.find('tbody')
     rows = table_body.find_all('tr')
@@ -113,18 +121,19 @@ def nea_data_big_c():
         cols = [ele.text.strip() for ele in cols]
         data.append([ele for ele in cols if ele])
 
-    # Format output to get first set of element as it reflects the largest cluster
+    # -- Format output to get first set of element as it reflects the largest cluster -- #
     biggest_active_cluster = " ".join(data[3][1].split('/'))
     return biggest_active_cluster
    
+# -- Function to return Smallest Active Cluster -- #
 def nea_data_small_c():
-    # Using beautiful soup to borrow data from NEA because no api provided
+    # -- Using beautiful soup to borrow data from NEA because no api provided -- #
     page = requests.get("https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters")
     soup = BeautifulSoup(page.content, 'html.parser')
     data = []
 
-    # Get table element with this classname on NEA's site.
-    # This is the start of the table, where the information we want to crawl begins.  
+    # -- Get table element with this classname on NEA's site. -- # 
+    # -- This is the start of the table, where the information we want to crawl begins.  -- #
     table = soup.find('table', attrs={'class': 'table surveillance-table two-row-head dengue-fixed-table'})
     table_body = table.find('tbody')
     rows = table_body.find_all('tr')
@@ -133,7 +142,7 @@ def nea_data_small_c():
         cols = [ele.text.strip() for ele in cols]
         data.append([ele for ele in cols if ele])
 
-    # Format output to get last set as it reflects the smallest cluster
+    # -- Format output to get last set as it reflects the smallest cluster -- #
     smallest_active_cluster = " ".join(data[-2][1].split('/'))
     return smallest_active_cluster
   

@@ -312,8 +312,8 @@ def linear_reg_chart():
     # Setting a string to be displayed later
     dengue_title = "Dengue Linear Regression Analysis"
     # Calling the csv and reading from it
-    denguedata = pd.read_csv("source/dengue_data/hist_data_dengue.csv")
-    raindata = pd.read_csv("source/dengue_data/RainfallData.csv")
+    denguedata = pd.read_csv("hist_data_dengue.csv")
+    raindata = pd.read_csv("RainfallData_4.csv")
     # Getting filtering the data to get only the monthly data for both
     denguecases = total_case_per_month(denguedata)
     raincases = raindata.Total_Rainfall
