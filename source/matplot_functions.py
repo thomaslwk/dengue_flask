@@ -346,3 +346,39 @@ def linear_reg_chart():
     plt.savefig('flaskr/static/images/Linear_Regression_DvR.png', bbox_inches="tight")
     # Returns a string that can be printed later
     return dengue_title
+
+# -- (PENDING) Function -- # 
+# def dengue_cases_table():
+#     """
+#         FOR FUTURE UPDATES
+#
+#         This function will produce a table that will display all the cases for each week for all the years.
+#
+#         Parameter:()
+#
+#         Returns:
+#             print(dengue_cases_table) (DataFrame): This will return a DataFrame that will be displayed.
+#     """
+#     # Importing of dataset
+#     dengue_data = pandas.read_csv("source/dengue_data/hist_data_dengue.csv")
+#     # Getting the unique years and weeks
+#     year = years(dengue_data)
+#     week = weeks(dengue_data)
+#     # Converting the Dataframe to a list of integers
+#     years_list = year["Year"].astype(int).values.tolist()
+#     weeks_list = week["Week"].astype(int).values.tolist()
+#     # Setting the header for the table
+#     header = pd.MultiIndex.from_product([years_list, ['Dengue Cases']])
+#     # Creating an empty list to store the different rows to be printed
+#     total_weeks_list = []
+#     # This for loop checks if the first week is the same as i and then appends it to a list.
+#     for i in weeks_list:
+#         is_week = dengue_data["Week"] == i
+#         weeklist = dengue_data[is_week]
+#         weeklist = weeklist['Case per Week'].to_list()
+#         total_weeks_list.append(weeklist)
+#     # This will fill the table with the data from the list row by row
+#     dengue_cases_table = pd.DataFrame(total_weeks_list, index=weeks_list, columns=header)
+#     # Returns a printed table
+#     return print(dengue_cases_table)
+
