@@ -143,7 +143,7 @@ def nea_data_small_c():
         data.append([ele for ele in cols if ele])
 
     # -- Format output to get last set as it reflects the smallest cluster -- #
-    smallest_active_cluster = " ".join(data[-2][1].split('/'))
+    smallest_active_cluster = " ".join(data[-1][1].split('/'))
     return smallest_active_cluster
   
     
